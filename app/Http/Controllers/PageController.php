@@ -3,25 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Usuario;
 
 class PageController extends Controller
 {
     public function home(){
-        return view('home');
+        return view('users.index');
     }
 
-    public function blog(){
-        $posts = [
-            ['id' => 1, 'title' => 'PHP', 'slug' => 'php'],
-            ['id' => 2, 'title' => 'Laravel', 'slug' => 'php']
-        ];
+    public function users(){
+        $users = Usuario::latest()->paginate();
+        return view('users.users',['users' => $users]);
+    }
+
+    public function user(Usuario $user){
+        return view('user',['user' => $user]);
+    }
+
     
-        return view('blog',['posts' =>$posts]);
-    }
-
-    public function post($slug){
-        $post = $slug;
-        return view('post',['post' =>$post]);
-    }
 
 }

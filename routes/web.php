@@ -1,6 +1,8 @@
 <?php
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+//use App\Http\Controllers\RolController;
 use App\Http\Controllers\PageController;
 
 /*
@@ -14,25 +16,33 @@ use App\Http\Controllers\PageController;
 |
 */
 
-/**
- * Route:get Consultar
- * Route:post Guardar
- * Route:delete Eliminar
- * Route:put Actualizar
- * * */
+//Route::resource('rol',RolController::class);
 
-//RETORNAR UNA VISTA
-Route::get('/', [PageController::class,'home'])->name('home');
+Route::controller(PageController::class)->group(function(){
+    Route::get('/','home')->name('home');
+    Route::get('users','users')->name('users');
+    
+    //Route::get('users/{user}','user')->name('user');
+});
 
-Route::get('blog', [PageController::class,'blog'])->name('blog');
-
-Route::get('blog/{slug}', [PageController::class,'post'])->name('post');
-
-Route::get('buscar', function ($request) {
-    return $request->all();
+Route::controller(UserController::class)->group(function(){
+    Route::get('users/create','create')->name('create');
+    Route::post('users/create','store')->name('store');
+    //Route::get('users/{user}','user')->name('user');
 });
 
 
 
+//redirecciona al formulario
+//Route::get('/users/create', [UserController::class, 'create']);
 
+//enviar formulario
+//Route::post('/users/create',  [UserController::class, 'store']);
 
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
+
+//Route::get('login', function () {
+//    return view('welcome');
+//});
