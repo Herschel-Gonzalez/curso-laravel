@@ -13,9 +13,17 @@
 <body>
 
     <h1>Usuarios</h1><br>
-    <a href="/users/create"><button type="button" class="btn btn-dark">Agregar nuevo usuario</button></a>
+
+    <form action="{{ url('logout') }}" method="POST">
+      @csrf
+      <button type="submit" class="btn btn-primary">Cerrar sesion</button>
+    </form>
+    <br>
+
+    <a href="register"><button type="button" class="btn btn-dark">Agregar nuevo usuario</button></a>
+    
     <br><br>
-    @foreach ($users as $user)
+
     
 <table class="table">
   <thead class="table-dark">
@@ -26,32 +34,37 @@
         <td>Edad</td>
         <td>Fecha de nacimiento</td>
         <td>Genero</td>
-        <td>Usuario</td>
+        <td>Correo</td>
         <td>Contraseña</td>
         <td>Fecha de creación</td>
         <td>Fecha de actualización</td>
+        <td>Acciones</td>
     </tr>    
   </thead>
   <tbody>
+  
+  @foreach ($users as $user)
 
   <tr>
-    <td>{{$user['nombre']}}</td>
+    <td>{{$user['name']}}</td>
     <td>{{$user['paterno']}}</td>
     <td>{{$user['materno']}}</td>
     <td>{{$user['edad']}}</td>
     <td>{{$user['fecha_nacimiento']}}</td>
     <td>{{$user['genero']}}</td>
-    <td>{{$user['usuario']}}</td>
+    <td>{{$user['email']}}</td>
     <td>{{$user['password']}}</td>
     <td>{{$user['created_at']}}</td>
     <td>{{$user['updated_at']}}</td>
   </tr>
+
+  @endforeach
     
   </tbody>
 </table>
 
 
-    @endforeach
+    
     
 </body>
 </html>

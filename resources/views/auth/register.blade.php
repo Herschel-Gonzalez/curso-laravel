@@ -18,6 +18,56 @@
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
 
+            <!-- Paterno -->
+
+            <div>
+                <x-input-label for="paterno" :value="__('Paterno')" />
+
+                <x-text-input id="paterno" class="block mt-1 w-full" type="text" name="paterno" :value="old('paterno')" required autofocus />
+
+                <x-input-error :messages="$errors->get('paterno')" class="mt-2" />
+            </div>
+
+            <!-- Materno -->
+
+            <div>
+                <x-input-label for="materno" :value="__('Materno')" />
+
+                <x-text-input id="materno" class="block mt-1 w-full" type="text" name="materno" :value="old('materno')" required autofocus />
+
+                <x-input-error :messages="$errors->get('materno')" class="mt-2" />
+            </div>
+
+
+            <!-- Edad -->
+
+            <div>
+                <x-input-label for="edad" :value="__('Edad')" />
+
+                <x-text-input id="edad" class="block mt-1 w-full" type="number" name="edad" :value="old('edad')" required autofocus />
+
+                <x-input-error :messages="$errors->get('edad')" class="mt-2" />
+            </div>
+
+            <!-- Fecha de nacimiento -->
+
+            <div>
+                <x-input-label for="fecha_nacimiento" :value="__('Fecha_nacimiento')" />
+
+                <x-text-input id="fecha_nacimiento" class="block mt-1 w-full" type="date" name="fecha_nacimiento" :value="old('fecha_nacimiento')" required autofocus />
+
+                <x-input-error :messages="$errors->get('fecha_nacimiento')" class="mt-2" />
+            </div>
+
+            <!-- Genero -->
+            <div class="mt-4">
+                <x-input-label for="genero" :value="__('Genero')" />
+
+                <x-text-input id="genero" class="block mt-1 w-full" type="genero" name="genero" :value="old('genero')" required />
+
+                <x-input-error :messages="$errors->get('genero')" class="mt-2" />
+            </div>
+
             <!-- Email Address -->
             <div class="mt-4">
                 <x-input-label for="email" :value="__('Email')" />
@@ -26,6 +76,7 @@
 
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
+
 
             <!-- Password -->
             <div class="mt-4">
@@ -51,9 +102,6 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
 
                 <x-primary-button class="ml-4">
                     {{ __('Register') }}

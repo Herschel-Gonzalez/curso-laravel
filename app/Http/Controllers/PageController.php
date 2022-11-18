@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Usuario;
+use App\Models\User;
 
 class PageController extends Controller
 {
@@ -12,11 +12,11 @@ class PageController extends Controller
     }
 
     public function users(){
-        $users = Usuario::latest()->paginate();
+        $users = User::latest()->paginate();
         return view('users.users',['users' => $users]);
     }
 
-    public function user(Usuario $user){
+    public function user(User $user){
         return view('user',['user' => $user]);
     }
 

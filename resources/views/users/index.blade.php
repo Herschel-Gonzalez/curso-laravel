@@ -12,7 +12,7 @@
 
 @auth
 
-<a href="{{route('dashboard')}}">Usuarios</a>
+<a href="{{route('users')}}">Usuarios</a>
 
 @else
 <a href="{{route('login')}}">Login</a>
