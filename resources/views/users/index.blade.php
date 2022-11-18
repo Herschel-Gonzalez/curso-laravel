@@ -9,6 +9,15 @@
 <body>
 
 <h1>Pagina de inicio</h1>
+
+@auth
+
+<a href="{{route('dashboard')}}">Usuarios</a>
+
+@else
+<a href="{{route('login')}}">Login</a>
+
+@endauth
     
 </body>
 </html>
