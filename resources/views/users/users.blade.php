@@ -56,6 +56,8 @@
     <td>{{$user['password']}}</td>
     <td>{{$user['created_at']}}</td>
     <td>{{$user['updated_at']}}</td>
+    <td><a href="{{route('edit', $user->id)}}" class="text-indigo-600">Editar</a></td>
+    <td><a href="{{route('delete', $user->id)}}" class="text-indigo-600">Eliminar</a></td>
   </tr>
 
   @endforeach

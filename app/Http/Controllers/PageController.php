@@ -20,6 +20,15 @@ class PageController extends Controller
         return view('user',['user' => $user]);
     }
 
+
+
+    public function edit($userid){
+        $user = User::find($userid);
+       return view('users.edit',['user' => $user]);
+    }
+
+    
+
     
 
 }
